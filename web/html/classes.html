@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>班级信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/student.css">
+</head>
+<body>
+<div class="main">
+    <div class="head-tip">
+        <a href="#" id="back">返回</a>
+        <span></span>
+        <a id="loginOut" href="#">退出</a>
+        <span></span>
+        <a href="../rePassword.jsp" id="rePwd">修改密码</a>
+    </div>
+    <div class="head">
+        <div class="header-line"></div>
+        <h1>课程信息表</h1>
+        <div class="header-line"></div>
+    </div>
+    <div class="head-button">
+        <button onclick="add()" class="green-button">添加</button>
+        <button onclick="remove()" class="red-button">删除</button>
+    </div>
+    <div class="search" >
+        <select name="choice" id="choice">
+            <option>全部</option>
+            <option value="classId">班级编号</option>
+            <option value="classesName">班级名称</option>
+            <option value="classNum">班级总人数</option>
+            <option value="classTeacher">班级负责教师</option >
+        </select>
+        <input type="search" id="search">
+        <button id="searchBtn">搜索</button>
+    </div>
+    <div>
+        <table id="containerTable">
+            <thead>
+            <tr>
+                <th class="col1"><input type="checkbox" onclick="checkAll(this)" id="checkAll"></th>
+                <th class="col2">序号</th>
+                <th class="col3">班级编号</th>
+                <th class="col4">班级名称</th>
+                <th class="col5">班级总人数</th>
+                <th class="col6">班级负责教师</th>
+                <th class="col7">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="foot" id="final">
+        <div class="tfoot">
+            第<span id="pageNum"></span>/<span id="totalPage"></span>页，
+            共<span id="nums"></span>条
+        </div>
+        <div class="foot-button">
+            <button class="green-button" id="yPrevious" onclick="yPrevious()">上一页</button>
+            <button class="red-button"  id="yNext" onclick="yNext()">下一页</button>
+        </div>
+    </div>
+</div>
+<div id="addBlock" class="addBlock">
+
+    <div style="border-bottom: 1px solid #e5e5e5;color: #fff;background-color: #555;font-size:20px;padding-bottom:4px">增添学生信息</div>
+    <table>
+        <tr>
+            <td class="table1">工号</td>
+            <td class="table2"><input type="text" id="classId1" name="classId"></td>
+        </tr>
+        <tr>
+            <td class="table1">班级名称</td>
+            <td class="table2"><input type="text" id="classesName1" maxlength="6" name="classesName"></td>
+        </tr>
+        <tr>
+            <td class="table1">总人数</td>
+            <td class="table2"><input type="text" id="classNum1" name="classNum"></td>
+        </tr>
+        <tr>
+            <td class="table1">负责老师</td>
+            <td class="table2">
+                <select id="classTeacher1" style="width: 202px;height: 20px" name="classTeacher">
+                    <option> </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <div class="hButton">
+        <button id="addSubmit" style="height: 30px;width: 45px;margin-right: 10px">提交</button>
+        <button id="addCancel" onclick="addCancel()" style="height: 30px;width: 45px;margin-right: 5px">取消</button>
+    </div>
+</div>
+
+<div id="upBlock" class="upBlock">
+    <div style="border-bottom: 1px solid #e5e5e5;color: #fff;background-color: #555;font-size:20px;padding-bottom:4px">修改班级信息</div>
+    <div>
+        <table style="height: 230px">
+            <tr >
+                <td class="upTable1">班级编号</td>
+                <td class="upTable2"><input type="text" id="classId2"></td>
+            </tr>
+            <tr>
+                <td class="upTable1">班级名称</td>
+                <td class="upTable2"><input type="text" id="classesName2"></td>
+            </tr>
+            <tr>
+                <td class="upTable1">总人数</td>
+                <td class="upTable2"><input type="text" id="classNum2"></td>
+            </tr>
+            <tr>
+                <td class="upTable1">负责老师</td>
+                <td class="upTable2">
+                    <select id="classTeacher2" style="width: 202px;height: 20px" name="classTeacher">
+                        <option> </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="hButton">
+        <button id="upSubmit" onclick="upSubmit()" style="height: 30px;width: 45px;margin-right: 10px">确定</button>
+        <button id="upCancel" onclick="upCancel()" style="height: 30px;width: 45px;margin-right: 5px">取消</button>
+    </div>
+</div>
+<div id="exBlock" class="exBlock">
+    <div style="border-bottom: 1px solid #e5e5e5;color: #fff;background-color: #555;font-size:20px;padding:4px 0">查看班级信息</div>
+    <div id>
+        <table style="height:230px">
+            <tr >
+                <td class="exTable1">班级编号</td>
+                <td class="exTable2"><input type="text" id="classId3"  readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td class="exTable1">班级名称</td>
+                <td class="exTable2"><input type="text" id="classesName3"  readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td class="exTable1">总人数</td>
+                <td class="exTable2"><input type="text" id="classNum3"  readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td class="exTable1">负责教师</td>
+                <td class="exTable2"><input type="text" id="classTeacher3"  readonly="readonly"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="hButton">
+        <button id="exCancel" onclick="exCancel()" style="height: 30px;width: 45px;margin-right: 5px">取消</button>
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery-3.7.0.js"></script>
+<script type="text/javascript" src="../js/classes.js"></script>
+</body>
+</html>

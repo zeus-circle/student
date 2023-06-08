@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/student.css">
+</head>
+<body>
+<div class="main">
+    <div class="head-tip">
+        <a href="#" id="back">返回</a>
+        <span></span>
+        <a id="loginOut" href="../loginOut.jsp">退出</a>
+        <span></span>
+        <a href="../rePassword.jsp" id="rePwd">修改密码</a>
+    </div>
+    <div class="head">
+        <div class="header-line"></div>
+        <h1>学生信息表</h1>
+        <div class="header-line"></div>
+    </div>
+    <div class="head-button">
+        <button onclick="add()" class="green-button">添加</button>
+        <button onclick="remove()" class="red-button">删除</button>
+    </div>
+    <div class="search" >
+        <select name="choice" id="choice">
+            <option>全部</option>
+            <option value="stuId">学号</option>
+            <option value="stuName">姓名</option>
+            <option value="stuSex">性别</option>
+            <option value="stuAge">年龄</option>
+            <option value="stuGrade">年级</option >
+            <option value="stuClass">班级编号</option>
+        </select>
+        <input type="search" id="search">
+        <button id="searchBtn">搜索</button>
+    </div>
+    <div>
+        <table id="containerTable">
+            <thead>
+            <tr>
+                <th class="col1"><input type="checkbox" onclick="checkAll(this)" id="checkAll"></th>
+                <th class="col2">序号</th>
+                <th class="col3">学号</th>
+                <th class="col4">姓名</th>
+                <th class="col5">性别</th>
+                <th class="col6">年龄</th>
+                <th class="col7">年级</th>
+                <th class="col8">班级编号</th>
+                <th class="col9">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="foot" id="final">
+        <div class="tfoot">
+            第<span id="pageNum"></span>/<span id="totalPage"></span>页，
+            共<span id="nums"></span>条
+        </div>
+        <div class="foot-button">
+            <button class="green-button" id="yPrevious" onclick="yPrevious()">上一页</button>
+            <button class="red-button"  id="yNext" onclick="yNext()">下一页</button>
+        </div>
+    </div>
+</div>
+<div id="addBlock" class="addBlock">
+
+        <div style="border-bottom: 1px solid #e5e5e5;color: #fff;background-color: #555;font-size:20px;padding-bottom:4px">增添学生信息</div>
+        <table>
+            <tr>
+                <td class="table1">学号</td>
+                <td class="table2"><input type="text" id="stuId1" name="stuId"></td>
+            </tr>
+            <tr>
+                <td class="table1">姓名</td>
+                <td class="table2"><input type="text" id="stuName1" maxlength="6" name="stuName"></td>
+            </tr>
+            <tr>
+                <td class="table1">性别</td>
+                <td class="table2"><input type="text" id="stuSex1" name="stuSex"></td>
+            </tr>
+            <tr>
+                <td class="table1">年龄</td>
+                <td class="table2"><input type="text" id="stuAge1" name="stuAge"></td>
+            </tr>
+            <tr>
+                <td class="table1">年级</td>
+                <td class="table2"><input type="text" id="stuGrade1" maxlength="4" name="stuGrade"></td>
+            </tr>
+            <tr>
+                <td class="table1">班级编号</td>
+                <td class="table2">
+                    <select id="stuClass1" style="width: 202px;height: 20px" name="stuClass">
+                        <option> </option>
+                    </select>
+            </tr>
+        </table>
+    <div class="hButton">
+        <button id="addSubmit" style="height: 30px;width: 45px;margin-right: 10px">提交</button>
+        <button id="addCancel" onclick="addCancel()" style="height: 30px;width: 45px;margin-right: 5px">取消</button>
+    </div>
+</div>
+
+<div id="upBlock" class="upBlock">
+    <form action="/UpdateStuServlet"></form>
+    <div style="border-bottom: 1px solid #e5e5e5;color: #fff;background-color: #555;font-size:20px;padding-bottom:4px">修改学生信息</div>
+    <div>
+        <table style="height: 230px">
+            <tr >
+                <td class="upTable1">学号</td>
+                <td class="upTable2"><input type="text" id="stuId2"></td>
+            </tr>
+            <tr>
+                <td class="upTable1">姓名</td>
+                <td class="upTable2"><input type="text" id="stuName2"></td>
+            </tr>
+            <tr>
+                <td class="upTable1">性别</td>
+                <td class="upTable2"><input type="text" id="stuSex2"></td>
+            </tr>
+            <tr>
+                <td class="upTable1">年龄</td>
+                <td class="upTable2"><input type="text" id="stuAge2"></td>
+            </tr>
+            <tr>
+                <td class="upTable1">年级</td>
+                <td class="upTable2"><input type="text" id="stuGrade2"></td>
+            </tr>
+            <tr>
+                <td class="upTable1">班级编号</td>
+                <td class="upTable2">
+                    <select id="stuClass2" style="width: 202px;height: 20px" >
+                        <option> </option>
+                    </select>
+            </tr>
+        </table>
+    </div>
+    <div class="hButton">
+        <button id="upSubmit" onclick="upSubmit()" style="height: 30px;width: 45px;margin-right: 10px">确定</button>
+        <button id="upCancel" onclick="upCancel()" style="height: 30px;width: 45px;margin-right: 5px">取消</button>
+    </div>
+</div>
+<div id="exBlock" class="exBlock">
+    <div style="border-bottom: 1px solid #e5e5e5;color: #fff;background-color: #555;font-size:20px;padding:4px 0">查看学生信息</div>
+    <div id>
+        <table style="height:230px">
+            <tr >
+                <td class="exTable1">学号</td>
+                <td class="exTable2"><input type="text" id="stuId3"  readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td class="exTable1">姓名</td>
+                <td class="exTable2"><input type="text" id="stuName3"  readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td class="exTable1">性别</td>
+                <td class="exTable2"><input type="text" id="stuSex3"  readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td class="exTable1">年龄</td>
+                <td class="exTable2"><input type="text" id="stuAge3"  readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td class="exTable1">年级</td>
+                <td class="exTable2"><input type="text" id="stuGrade3"  readonly="readonly"></td>
+            </tr>
+            <tr>
+                <td class="exTable1">班级编号</td>
+                <td class="exTable2"><input type="text" id="stuClass3"  readonly="readonly"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="hButton">
+        <button id="exCancel" onclick="exCancel()" style="height: 30px;width: 45px;margin-right: 5px">取消</button>
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery-3.7.0.js"></script>
+<script type="text/javascript" src="../js/student.js"></script>
+</body>
+</html>

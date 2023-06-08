@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.student.service.user.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.student.service.user.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>rePasswordServlet</servlet-name>
+        <servlet-class>com.student.service.user.rePasswordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>rePasswordServlet</servlet-name>
+        <url-pattern>/rePasswordServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>SearchStuServlet</servlet-name>
+    <servlet-class>com.student.service.student.SearchStuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchStuServlet</servlet-name>
+        <url-pattern>/SearchStuServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddStuServlet</servlet-name>
+        <servlet-class>com.student.service.student.AddStuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddStuServlet</servlet-name>
+        <url-pattern>/AddStuServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateStuServlet</servlet-name>
+        <servlet-class>com.student.service.student.UpdateStuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateStuServlet</servlet-name>
+        <url-pattern>/UpdateStuServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteStuServlet</servlet-name>
+        <servlet-class>com.student.service.student.DeleteStuServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteStuServlet</servlet-name>
+        <url-pattern>/DeleteStuServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>SearchTeaServlet</servlet-name>
+        <servlet-class>com.student.service.teacher.SearchTeaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchTeaServlet</servlet-name>
+        <url-pattern>/SearchTeaServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddTeaServlet</servlet-name>
+        <servlet-class>com.student.service.teacher.AddTeaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddTeaServlet</servlet-name>
+        <url-pattern>/AddTeaServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateTeaServlet</servlet-name>
+        <servlet-class>com.student.service.teacher.UpdateTeaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateTeaServlet</servlet-name>
+        <url-pattern>/UpdateTeaServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteTeaServlet</servlet-name>
+        <servlet-class>com.student.service.teacher.DeleteTeaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteTeaServlet</servlet-name>
+        <url-pattern>/DeleteTeaServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>findTeaServlet</servlet-name>
+        <servlet-class>com.student.service.teacher.findTeaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>findTeaServlet</servlet-name>
+        <url-pattern>/findTeaServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchClassServlet</servlet-name>
+        <servlet-class>com.student.service.classes.SearchClassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchClassServlet</servlet-name>
+        <url-pattern>/SearchClassServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddClassServlet</servlet-name>
+        <servlet-class>com.student.service.classes.AddClassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddClassServlet</servlet-name>
+        <url-pattern>/AddClassServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateClassServlet</servlet-name>
+        <servlet-class>com.student.service.classes.UpdateClassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateClassServlet</servlet-name>
+        <url-pattern>/UpdateClassServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteClassServlet</servlet-name>
+        <servlet-class>com.student.service.classes.DeleteClassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteClassServlet</servlet-name>
+        <url-pattern>/DeleteClassServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>findClassServlet</servlet-name>
+        <servlet-class>com.student.service.classes.findClassServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>findClassServlet</servlet-name>
+        <url-pattern>/findClassServlet</url-pattern>
+    </servlet-mapping>
+
+<!--    <listener>-->
+<!--        <listener-class>com.student.listener.MyServletListener</listener-class>-->
+<!--    </listener>-->
+</web-app>

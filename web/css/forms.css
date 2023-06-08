@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:linear-gradient(to left, #76b852, #8DC26F);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page{
+    width: 360px;
+    padding: 14% 0 0;
+    margin: auto ;
+}
+.page div{
+    display: block;
+}
+
+.form{
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    max-width: 360px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.2),0 5px 5px 0 rgba(0,0,0,0.24);
+}
+
+.title{
+    color: #b3b3b3;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.title span{
+    margin: 0 10px;
+}
+#formContext input{
+    width: 240px;
+    height: 40px;
+    padding: 10px;
+    margin: 5px auto;
+    background: #f2f2f2;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+}
+
+#formContext .btn{
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 120px;
+    margin: 0 auto;
+    border: 0;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form .message{
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+.form .message a{
+    color: #4CAF50;
+    text-decoration: none;
+}
